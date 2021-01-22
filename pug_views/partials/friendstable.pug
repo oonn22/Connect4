@@ -1,0 +1,27 @@
+#friends_block.info_display_block
+    h3 Friends:
+    table#friends_table
+        tr
+            th(style='text-align: left;') Username
+            th(style='text-align: right;') Status
+        if friends.length === 0
+            tr
+                td No Friends Found!
+                td
+        else
+            each friend in friends
+                tr
+                    td.right_column
+                        a(href='#' onclick="top.window.location.href='/users/user?username=" + friend.username + "'") #{friend.username}
+                    td.left_column
+                        if friend.status === true
+                            b.green_text Online
+                        else
+                            b.red_player Offline
+    if friends.length !== 0
+        #nav_buttons
+            #prev_nav
+                button#prev_btn &lt&lt Last Page
+            #next_nav
+                button#next_btn Next Page &gt&gt
+        script(type='module' src='/javascript/tablenav.js')

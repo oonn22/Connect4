@@ -1,0 +1,25 @@
+#content_pane.content
+    #game_page.game_page_online
+        #game_block.game_container
+            button#replay_game_btn Replay Moves
+            button(style='display: none')#forfeit_btn Forfeit Game
+            button#share_btn share game
+            if guest
+                #info_pane
+                    p Want to play online with friends? Sign up by creating an account in the users tab!
+
+            canvas(width='640' height='580')#game_canvas
+            if game.winner === -1
+                #turn
+                    if game.blueTurn
+                        h2.center_text.blue_player#turn_header #{game.blueName}'s turn.
+                    else
+                        h2.center_text.red_player#turn_header #{game.redName}'s turn.
+            #title
+                h3.center_text
+                    |Red Player:&nbsp
+                    a(href='/users/user?username=' + game.redName).red_player #{game.redName}
+                    |&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Blue Player:&nbsp
+                    a(href='/users/user?username=' + game.blueName).blue_player #{game.blueName}
+        #chat_block.chat_container
+            iframe(src='/games/game/chat?gameid=' + game.gameID frameBorder="0")

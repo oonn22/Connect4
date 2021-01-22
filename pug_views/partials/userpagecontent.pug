@@ -1,0 +1,57 @@
+#content_pane.content
+    if u === null
+        #user_profile_page.user_not_found
+            h1 User is hidden or doesn't exist!
+    else
+        #user_profile_page.user_page
+            #profile_pic_block.profile_pic
+                img#profile_pic(src='../profile_pictures/profile_defualt.png' alt='Profile Picture')
+            #user_info_block.user_info_block
+                dl
+                    dt Username:
+                    dd#dd_username #{u.username}
+                    dt Status:
+                    if u.online
+                        dd#dd_status online
+                    else
+                        dd#dd_status offline
+                    dt Friend Count:
+                    dd#dd_friend_count #{u.friends.length.toString()}
+                    dt Win Percent:
+                    if u.history.length === 0
+                        dd#dd_win_percent 0%
+                    else
+                        dd#dd_win_percent #{winPercent}
+                    dt Games Played:
+                    dd#dd_games_count #{u.history.length.toString()}
+                button#btn_add_friend Add Friend
+                button#btn_request_game Request Game
+                button#btn_friend_requests Friend Requests
+                button#btn_game_requests Game Requests
+                button#btn_friends Friends
+                button#btn_active_games Active Games
+                button#btn_history Game History
+                button#btn_privacy Change Privacy
+            iframe(frameBorder="0")#table_content
+            #privacy_form_popup.popup_form
+                h3 Choose your privacy option:
+                #privacy_option_radio.privacy_radios
+                    if u.privacy === 1
+                        input(type='radio' name='privacy' value="1" checked)#public_rad
+                    else
+                        input(type='radio' name='privacy' value="1")#public_rad
+                    label(for='public_rad') Public
+                    if u.privacy === 0
+                        input(type='radio' name='privacy' value="0" checked)#friends_only_rad
+                    else
+                        input(type='radio' name='privacy' value="0")#friends_only_rad
+                    label(for='friends_only_rad') Friends Only
+                    if u.privacy === -1
+                        input(type='radio' name='privacy' value="-1" checked)#private_rad
+                    else
+                        input(type='radio' name='privacy' value="-1")#private_rad
+                    label(for='private_rad') Private
+                button#btn_submit_privacy Change
+                button#btn_cancel_privacy Cancel
+
+        script(type='module' src='../javascript/userpage.js')

@@ -1,0 +1,20 @@
+html
+    head
+        meta(charset='UTF-8')
+        title Connect 4
+        meta(name='keywords' content='connect four, connect 4')
+        meta(name='description' content='page for playing connect 4 online for connect 4 website')
+        meta(name='author' content='L337')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        link(rel='stylesheet' href='/style/style.css')
+        link(rel='stylesheet' href='/style/game.css')
+    body
+        include ../partials/navbars
+        include ../partials/onlinegame
+
+        script(type='module' src='/javascript/main.js')
+        script(src='/socket.io/socket.io.js')
+        if user === game.redName || user === game.blueName
+            script(type='module' src='/javascript/online_game_player.js')
+        else
+            script(type='module' src='/javascript/online_game_spec.js')

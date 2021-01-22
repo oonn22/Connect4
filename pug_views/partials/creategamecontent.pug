@@ -1,0 +1,42 @@
+#content_pane.content
+    #form.create_page
+        #single_player_form
+            h3 Single Player Game?
+            #single_option_radio
+                input(type='radio' name='single' value="0")#yes_rad
+                label(for='yes_rad') Yes
+                br
+                input(type='radio' name='single' value="1" checked)#no_rad
+                label(for='no_rad') No
+                br
+        #with_specific_user
+            h3 With Specific User?
+            input(type='radio' name='specific' value="0" checked)#with_user_rad
+            label(for='with_user_rad') Yes
+            br
+            input(type='radio' name='specific' value="1")#lfg_rad
+            label(for='lfg_rad') No
+            br
+        #with_user_form
+            h3 Opponent:
+            #get_opponent_text
+                if withUser
+                    label(for='opponent_text') Enter Opponent:&nbsp
+                    input(type='text', placeholder='Opponent Username', value=withUser)#opponent_text
+                else
+                    label(for='opponent_text') Enter Opponent:&nbsp
+                    input(type='text', placeholder='Opponent Username')#opponent_text
+        #privacy_form
+            h3 Privacy Setting:
+            #privacy_setting_radio
+                input(type='radio' name='privacy' value="1" checked)#public_rad
+                label(for='yes_rad') Public
+                br
+                input(type='radio' name='privacy' value="0")#friends_only_rad
+                label(for='no_rad') Friends Only
+                br
+                input(type='radio' name='privacy' value="-1")#private_rad
+                label(for='yes_rad') Private
+                br
+        #submit
+            button#submit_btn Send Invite

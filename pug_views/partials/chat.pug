@@ -1,0 +1,9 @@
+#messages.messages_block
+    table#msg_table
+        each msg in messages
+            tr
+                td(style="text-align: left; vertical-align: top;") #{msg.username}:&nbsp
+                td #{msg.text}
+#chat_input.chat_input
+    input(type='text' placeholder='chat message')#chat_text
+    button#send_btn send

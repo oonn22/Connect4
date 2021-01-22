@@ -1,0 +1,20 @@
+#topnav.topnav
+#sidenav.sidenav
+    if homeClicked
+        a(href='../')
+            input#home_btn(type='image' src='../../parts/icons/home_clicked.png' alt='homepage' title='Go to homepage')
+    else
+        a(href='../')
+            input#home_btn(type='image' src='../../parts/icons/home_unclicked.png' alt='homepage' title='Go to homepage')
+    if usersClicked
+        a(href='../')
+            input#users_btn(type='image' src='../../parts/icons/users_clicked.png' alt='users page' title='Go to users page')
+    else
+        a(href='../')
+            input#users_btn(type='image' src='../../parts/icons/users_unclicked.png' alt='users page' title='Go to users page')
+    if gameClicked
+        a(href='../')
+            input#game_btn(type='image' src='../../parts/icons/game_clicked.png' alt='game' title='Go to game page')
+    else
+        a(href='../')
+            input#game_btn(type='image' src='../../parts/icons/game_unclicked.png' alt='game' title='Go to game page')

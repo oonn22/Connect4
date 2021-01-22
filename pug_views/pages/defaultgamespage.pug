@@ -1,0 +1,16 @@
+html
+    head
+        meta(charset='UTF-8')
+        title Connect 4
+        meta(name='keywords' content='connect four, connect 4')
+        meta(name='description' content='games page for connect 4 website')
+        meta(name='author' content='L337')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        link(rel='stylesheet' href='/style/style.css')
+        link(rel='stylesheet' href='/style/default_games.css')
+    body
+        include ../partials/navbars
+        #content_pane.content
+            iframe(frameBorder="0" src='/users/user/activegames?page=1&limit=10')#table_content
+
+    script(type='module' src='../javascript/main.js')

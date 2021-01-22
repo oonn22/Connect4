@@ -1,0 +1,20 @@
+#content_pane.content
+    #user_login_page.user_login_page
+        h1
+            b Login:
+        #login_form
+            label(for='un_login_txt') Username:
+            input#un_login_txt(type='text' placeholder='Enter Username' required='')
+            label(for='pw_login_txt') Password:
+            input#pw_login_txt(type='password' placeholder='Enter Password' required='')
+            button#login_btn Login
+        h1
+            b Create Account:
+        #create_form
+            label(for='un_create_txt') Username:
+            input#un_create_txt(type='text' placeholder='Enter Username' required='')
+            label(for='pw_create_txt') Password:
+            input#pw_create_txt(type='password' placeholder='Enter Password' required='')
+            label(for='pw_confirm_create_txt') Confirm Password:
+            input#pw_confirm_create_txt(type='password' placeholder='Confirm Password' required='')
+            button#create_btn Create Account

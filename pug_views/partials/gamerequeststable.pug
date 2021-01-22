@@ -1,0 +1,35 @@
+#game_request_block.info_display_block
+    h3 Game Requests:
+    table#game_requests_table
+        tr
+            th(style='text-align: left;') User
+            th(style='text-align: center;') privacy
+            th(style='text-align: right;') Accept/Reject
+        if requests.length === 0
+            tr
+                td No Requests Found!
+                td
+                td
+        else
+            script(type='application/javascript' src='/javascript/acceptreject.js')
+            each request in requests
+                tr
+                    td.right_column
+                        a(href='#' onclick="top.window.location.href='/users/user?username=" + request.username + "'") #{request.username}
+                    td.right_column
+                        if request.privacy === -1
+                            |PRIVATE
+                        else if request.privacy === 0
+                            |FRIENDS ONLY
+                        else
+                            |PUBLIC
+                    td.left_column
+                        button(onclick="acceptGameRequest(" + JSON.stringify(request) + ")") accept
+                        button(onclick="rejectGameRequest(" + JSON.stringify(request) + ")") reject
+    if requests.length !== 0
+        #nav_buttons
+            #prev_nav
+                button#prev_btn &lt&lt Last Page
+            #next_nav
+                button#next_btn Next Page &gt&gt
+        script(type='module' src='/javascript/tablenav.js')

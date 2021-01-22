@@ -1,0 +1,27 @@
+#topnav.topnav
+    button#login_top_btn(style='right:0px;top:2px;') Login
+    button#search_top_btn(style='right:83px;top:2px;') Search
+    input#search_top_txt(style='right:170px;top:7px;' type='text' placeholder='Search Users')
+#sidenav.sidenav
+    form(method="get" action="/")
+        if homeClicked
+            input#home_btn(type='image' src='/icons/home_clicked.png' alt='homepage' title='Go to homepage' name='' value='')
+        else
+            input#home_btn(type='image' src='/icons/home_unclicked.png' alt='homepage' title='Go to homepage' name='' value='')
+    form(method="get" action="/users")
+        if usersClicked
+            input#users_btn(type='image' src='/icons/users_clicked.png' alt='users page' title='Go to users page' name='' value='')
+        else
+            input#users_btn(type='image' src='/icons/users_unclicked.png' alt='users page' title='Go to users page' name='' value='')
+    form(method="get" action="/users/search")
+        input(type='hidden' name='page' value= '1')
+        input(type='hidden' name='limit' value= '10')
+        if searchClicked
+            input#search_btn(type='image' src='/icons/search_clicked.png' alt='users page' title='Go to search page' name='' value='')
+        else
+            input#search_btn(type='image' src='/icons/search_unclicked.png' alt='users page' title='Go to search page' name='' value='')
+    form(method="get" action="/games")
+        if gameClicked
+            input#game_btn(type='image' src='/icons/game_clicked.png' alt='game' title='Go to game page' name='' value='')
+        else
+            input#game_btn(type='image' src='/icons/game_unclicked.png' alt='game' title='Go to game page' name='' value='')

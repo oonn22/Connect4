@@ -1,0 +1,34 @@
+#content_pane.content(style='padding: 20px;')
+    #search_result_pane.info_display_block
+        if query !== ''
+            input#search_txt(type='text' placeholder='Search Users' style='margin-bottom: 10px' value=query)
+        else
+            input#search_txt(type='text' placeholder='Search Users' style='margin-bottom: 10px')
+        table#search_results_table
+            tr
+                th(style='text-align: left;') Results
+                th(style='text-align: right;') Status
+            if results.length === 0
+                tr
+                    td No Results Found!
+                    td
+            each result in results
+                tr
+                    td.right_column
+                        a(href='#' onclick="top.window.location.href='/users/user?username=" + result.username + "'") #{result.username}
+                    td.left_column
+                        if result.status === true
+                            b.green_text Online
+                        else
+                            b.red_player Offline
+        #nav_buttons
+            #prev_nav
+                if page === 1
+                    button(disabled)#prev_btn &lt&lt Last Page
+                else
+                    button#prev_btn &lt&lt Last Page
+            #next_nav
+                if results.length < limit
+                    button(disabled)#next_btn Next Page &gt&gt
+                else
+                    button#next_btn Next Page &gt&gt

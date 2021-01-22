@@ -1,0 +1,26 @@
+#friend_request_block.info_display_block
+    h3 Friend Requests:
+    table#Friend_Requests_table
+        tr
+            th(style='text-align: left;') User
+            th(style='text-align: right;') Accept/Reject
+        if requests.length === 0
+            tr
+                td No Requests Found!
+                td
+        else
+            script(type='application/javascript' src='/javascript/acceptreject.js')
+            each request in requests
+                tr
+                    td.right_column
+                        a(href='#' onclick="top.window.location.href='/users/user?username=" + request + "'") #{request}
+                    td.left_column
+                        button(onclick="acceptFriendRequest('" + request +  "')") accept
+                        button(onclick="rejectFriendRequest('" + request +  "')") reject
+    if requests.length !== 0
+        #nav_buttons
+            #prev_nav
+                button#prev_btn &lt&lt Last Page
+            #next_nav
+                button#next_btn Next Page &gt&gt
+        script(type='module' src='/javascript/tablenav.js')

@@ -1,0 +1,50 @@
+#co
+#active_games_block.info_display_block
+    h3 Active Games:
+    if games.length !== 0
+        p Click on the username to view the players page, or click the turn column to go to the game. If you're looking for more games, check if you have any game invites in your user page.
+    else
+        if isUser === true
+            p You aren't in any active games! Use the Create Game button below to start playing, or check in your user page if you have any game requests!
+    #table_block
+        table#active_games_table
+            tr
+                th(style='text-align: left;') Players
+                th(style='text-align: right;') Turn
+            if games.length === 0
+                tr
+                    td No Games Found!
+                    td
+            else
+                each game in games
+                    tr
+                        td.right_column
+                            if game.redName !== ''
+                                a(href='#' onclick="top.window.location.href='/users/user?username=" + game.redName + "'").red_player #{game.redName}
+                            else
+                                b.red_player PRIVATE USER
+                            b &nbspVS.&nbsp
+                            if game.blueName !== ''
+                                a(href='#' onclick="top.window.location.href='/users/user?username=" + game.blueName + "'").blue_player #{game.blueName}
+                            else
+                                b.blue_player PRIVATE USER
+                        td(onclick="top.window.location.href='/games/game?gameid=" + game.id + "'").left_column
+                            if game.blueTurn
+                                if game.blueName !== ''
+                                    b.blue_player #{game.blueName}
+                                else
+                                    b.blue_player PRIVATE USER
+                            else
+                                if game.redName !== ''
+                                    b.red_player #{game.redName}
+                                else
+                                    b.red_player PRIVATE USER
+        #nav_buttons
+            #prev_nav
+                button#prev_btn &lt&lt Last Page
+            if isUser === true
+                #create_nav
+                    button#create_game_btn Create Game
+            #next_nav
+                button#next_btn Next Page &gt&gt
+        script(type='module' src='/javascript/tablenav.js')
