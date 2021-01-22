@@ -1,0 +1,94 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #1F2933;
+    color: #F5F7FA;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+canvas {
+}
+
+button {
+    background-color: #9AA5B1;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:focus {
+    outline: #1F2933;
+}
+
+input:focus {
+    outline: #1F2933;
+}
+
+.content {
+    position: fixed;
+    top: 40px;
+    left: 120px;
+    bottom: 0px;
+    right: 0px;
+    padding: 0;
+    margin: 0;
+}
+
+.topnav {
+    background-color: #323F4B;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.topnav button {
+    display: inline;
+    position: absolute;
+    box-sizing: border-box;
+    height: 36px;
+    width: 80px;
+}
+
+.topnav input[type="text"] {
+    display: inline;
+    position: absolute;
+    box-sizing: border-box;
+    height: 26px;
+    width: 200px;
+}
+
+.sidenav {
+    background-color: #323F4B;
+    height: 100%;
+    width: 120px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding-top: 40px;
+}
+
+.sidenav form {
+    display: inline;
+}
+
+.sidenav input {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.sidenav input:hover {
+    border-style: inset;
+}

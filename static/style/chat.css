@@ -1,0 +1,38 @@
+body {
+    background-color: #243B53;
+}
+.message_block {
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    overflow-y: auto;
+}
+
+.message_block table {
+    table-layout: fixed;
+    height: calc(100% - 20px);
+    width: 100% !important;
+    max-width: 100%;
+}
+
+.message_block td {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+.chat_input {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.chat_input input[type=text] {
+    width: calc(100% - 80px);
+}
+
+.chat_input button {
+    width: 80px;
+}

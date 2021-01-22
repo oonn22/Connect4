@@ -1,0 +1,16 @@
+.user_login_page {
+    padding: 5px 20px;
+}
+
+.user_login_page input[type=text], input[type=password] {
+    width: 40%;
+    margin: 8px 0px;
+    padding: 6px 10px;
+    display: block;
+    border: 1px solid #323F4B;
+    box-sizing: border-box;
+}
+
+.user_login_page button {
+    width: 40%;
+}
