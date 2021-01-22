@@ -1,0 +1,5 @@
+# Connect4
+A server and webpages to create a website where users can play connect 4 against each other.
+
+requires nodejs and mongodb.
+Adding the correct info to config.js and running the zlinux_run script will start the server listening on port 3000. 
